@@ -2,10 +2,13 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
   static targets = ['slide'];
+  static values = { index: Number } // this.indexValue -> data-slideshow-index-value
 
   initialize() {
-    this.index = Number(this.element.dataset.index);
-    this.showCurrentSlide();
+    console.log(this.indexValue)
+    console.log(typeof this.indexValue)
+    // this.index = Number(this.element.dataset.index);
+    // this.showCurrentSlide();
   }
 
   next() {
