@@ -10,12 +10,19 @@ export default class extends Controller {
   next() {
     this.indexValue++;
   }
-
+  
   previous() {
     this.indexValue--;
   }
-
+  
   indexValueChanged() {
+    const lastSlideIndex = this.slideTargets.length - 1
+    if (this.indexValue < 0) {
+      this.indexValue = lastSlideIndex
+    }
+    if (this.indexValue > lastSlideIndex) {
+      this.indexValue = 0
+    }
     this.showCurrentSlide();
   }
 
