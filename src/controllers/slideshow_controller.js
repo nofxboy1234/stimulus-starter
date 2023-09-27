@@ -2,7 +2,7 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
   static targets = ['slide'];
-  static values = { index: Number }; // this.indexValue -> data-slideshow-index-value
+  static values = { index: { type: Number, default: 2 } }; // this.indexValue -> data-slideshow-index-value
 
   next() {
     this.indexValue++;
@@ -13,7 +13,7 @@ export default class extends Controller {
   }
 
   indexValueChanged() {
-    this.showCurrentSlide()
+    this.showCurrentSlide();
   }
 
   showCurrentSlide() {
