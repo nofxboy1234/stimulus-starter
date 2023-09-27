@@ -2,7 +2,10 @@ import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
   static targets = ['slide'];
-  static values = { index: { type: Number, default: 2 } }; // this.indexValue -> data-slideshow-index-value
+  static values = {
+    index: { type: Number, default: 2 },
+    effect: { type: String, default: 'kenburns' },
+  }; // this.indexValue -> data-slideshow-index-value
 
   next() {
     this.indexValue++;
