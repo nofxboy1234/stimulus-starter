@@ -1,9 +1,12 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
-  load({ params }) {
+  load(event) {
+    console.log(event);
+    event.preventDefault();
+
     console.log('load');
-    fetch(params.url)
+    fetch(event.params.url)
       .then((response) => response.text())
       .then((html) => (this.element.innerHTML = html));
   }
